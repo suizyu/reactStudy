@@ -1,29 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
+
+// //クラスコンポｰネント
+// class ClassApp extends Component{
+
+//   constructor(){
+//   }
+
+//   render(){
+//     return <h1>render by class</h1>;
+//   }
+// }
+
+//関数コンポーネント
+const Ex = () => {
+  return <h1>Example</h1>
+}
 
 function App() {
-  
-  const greeting = "Hi!!,"
-  const dom = <h1 className="foo">{greeting}  This is dom!!!</h1>
-
-  //属性名はキャメルケース
-
-  const inputLog =  <input type="text" onChange={() => {console.log("start input")}} />;
-
-  const forexample = (
-    <React.Fragment> 
-      <label htmlFor="bar">bar</label>
-      {inputLog}
+  return (
+    <React.Fragment>
+      <Ex />
+      <Ex />
+      <Ex />
     </React.Fragment>
   );
-
-  //return で返すタグは1つでないといけない　→　要らない出力をなくす：React.Fragment
-
-  return forexample;
-
-  // return　の書き方
-  //return dom;
-  //return (dom);
-  
 }
 
 export default App;
