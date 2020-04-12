@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 //Ex props
 const Ex = (props) => {
@@ -10,17 +11,17 @@ const Ex = (props) => {
   )
 }
 
-Ex.defaultProps = {
-  age: 1
-};
+Ex.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number.isRequired
+}
 
 function App() {
 
   const profile = [
     {name: "Taro", age: 19},
     {name: "Siro", age: 7},
-    {name: "John"},
-    {name: "Jiro", age: 15}
+    {name: "Saburo", age: 5},
   ]
 
   return (
