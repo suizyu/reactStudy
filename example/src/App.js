@@ -1,38 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
-//Ex props
-const Ex = (props) => {
-  return( 
-    <React.Fragment>
-      <h1>Hi, Here is {props.name}'s Page.</h1>
-      <p>you are {props.age} years old</p>
-    </React.Fragment>
-  )
-}
+// Propsは親のCompornentから値を渡される。
+// StateはCompornentの内部でのみ使用される
+// Popsは変更不能だが、Stateは変更可能
 
-Ex.propTypes = {
-  name: PropTypes.string,
-  age: PropTypes.number.isRequired
-}
+const App = () => (<Counter></Counter>);
 
-function App() {
+class Counter extends Component {
+  constructor(props) {
+    super(props)    
+    console.log(this.state)
+    this.state = { count: 0 }
+  }
 
-  const profile = [
-    {name: "Taro", age: 19},
-    {name: "Siro", age: 7},
-    {name: "Saburo", age: 5},
-  ]
+  countPlus = () => {
+    // NGパターン
+    // this.state = {count: this.state.count + 5};
+    // setStateが実行されると、コールバックでrenderが作動する。
+    
+    this.setState({ count: this.state.count + 1})
+  }
 
-  return (
-    <React.Fragment>
-      {
-        profile.map((profile, index) =>  {
-          return <Ex name={profile.name} age={profile.age} key={index}/>
-        })
-      }
-    </React.Fragment>
-  );
+  countMinus = () => {
+    this.setState({ count: this.state.count -1})
+  }
+
+  render() {
+    return(
+      <React.Fragment>
+        <div>count: { this.state.count }</div>
+        <button onClick={this.countPlus}>＋１</button>
+        <button onClick={this.countMinus}>－１</button>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
