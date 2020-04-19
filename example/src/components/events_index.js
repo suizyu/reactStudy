@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { increment, decrement} from '../actions';
 
-// Propsは親のCompornentから値を渡される。
-// StateはCompornentの内部でのみ使用される
-// Popsは変更不能だが、Stateは変更可能
-
-class App extends Component {
-    //reducerで行っているのでconstructorは不要。
-
+class EventsIndex extends Component {
   render() {
     const props = this.props
     return(
@@ -28,7 +21,4 @@ const mapDispatchToProps = dispatch => ({
   decrement: () => dispatch(decrement())
 })
 
-//別の書き方
-//const mapDispatchToProps = ({ increment, decrement }}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(EventsIndex)
