@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { readEvents } from '../actions';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { readEvents } from '../actions'
 
 class EventsIndex extends Component {
   componentDidMount(){
-    console.log('hello');
-    this.props.readEvents();
+    this.props.readEvents()
   }
   render() {
     const props = this.props
@@ -19,7 +18,7 @@ class EventsIndex extends Component {
   }
 }
 
-const mapStateToProps = state => ({  })
-const mapDispatchToProps = dispatch => ({ readEvents })
+const mapStateToProps = state => ({})
+const mapDispatchToProps = ({ readEvents })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsIndex)
